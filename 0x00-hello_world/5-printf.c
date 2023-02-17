@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 /**
- * main entry point
- * return type int, value 0
+* main entry point
+* return type int, value 0
 */
 
 int main(void)
