@@ -1,8 +1,10 @@
 #include <stdio.h>
+#include <unistd.h>
+
 /**
- * main - is the entry point of this file
- * 
- * Return: the value of 1 (Success)
+* main -  entry point
+* 
+* Return: 1 (Success)
 */
 int main(void)
 {
