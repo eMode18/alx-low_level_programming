@@ -1,10 +1,9 @@
 #include <stdio.h>
-
 /**
- * main is the programs entry point
- * main should return value of 0 type int
+ * main - is the programs entry point
+ *
+ * Return: 0 (Success)
 */
-
 int main(void)
 {
 	printf("Size of a char: %zu byte(s)\n", sizeof(char));
@@ -14,3 +13,4 @@ int main(void)
 	printf("Size of a float: %zu byte(s)\n", sizeof(float));
 	return (0);
 }
+
