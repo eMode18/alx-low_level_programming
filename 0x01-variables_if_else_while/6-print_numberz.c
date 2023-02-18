@@ -1,5 +1,6 @@
 #include <stdio.h>
-/** main - program entry point
+/**
+ * main - program entry point
  *
  * Return: 0 (Success)
  */
@@ -10,7 +11,7 @@ int main(void)
 
 	c = 0;
 	while
-		(c < 10){
+		(c < 10) {
 			putchar(c + '0');
 			c++;
 		}
