@@ -1,15 +1,17 @@
 #include "main.h"
 /**
  * print_most_numbers - function that prints more numbers
+ *
+ * Return: numbers without 2 and 4
  */
 void print_most_numbers(void)
 {
-	int x;
+	int i;
 
-	for (x = 0; x < 10; x++)
+	for (i = 0; i < 10; i++)
 	{
-		if (x =! 2 && x != 4)
-			_putchar(x + '0');
+		if (i =! 2 && i != 4)
+			_putchar(i + '0');
 	}
-	_putchar('\n');
+	putchar('\n');
 }
