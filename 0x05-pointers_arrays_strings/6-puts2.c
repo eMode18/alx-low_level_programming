@@ -17,8 +17,8 @@ void puts2(char *str)
 		y++;
 		longInt++;
 	}
-	b = longInt -1;
-	for (o = 0; o <=b; o++)
+	b = longInt - 1;
+	for (o = 0; o <= b; o++)
 	{
 		if (o % 2 == 0)
 		{
