@@ -1,9 +1,9 @@
 #include "main.h"
 /**
- * puts_half - this function prints 50% of the string
+ * puts_half - this function prints of the string
  * if odd len, n = (length_of_the_string - 1) * 0.5
  * @str - input
- * Return: 50% of the input
+ * Return: half of the input
  */
 void puts_half(char *str)
 {
