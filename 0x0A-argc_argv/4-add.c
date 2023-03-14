@@ -3,21 +3,16 @@
 	#include <ctype.h>
 	#include <string.h>
 	/**
-	 * check_num - check - string there are digit
+	 * check_num - check digits in a string
 	 * @str: array str
-	 *
 	 * Return: Always 0 (Success)
 	 */
-	int check_num(char *str)
+	int check_num(char *str) /*check digit*/
 	{
-		/*Declaring variables*/
 		unsigned int count;
-
 
 		count = 0;
 		while (count < strlen(str)) /*count string*/
-
-
 		{
 			if (!isdigit(str[count])) /*check if str there are digit*/
 			{
@@ -31,21 +26,15 @@
 	}
 
 
-	/**
-	 * main - Print the name of the program
-	 * @argc: Count arguments
-	 * @argv: Arguments
-	 *
-	 * Return: Always 0 (Success)
-	 */
-
+/**
+ * main - Print the name of the program
+ * @argc: Count arguments
+ * @argv: Arguments
+ * Return: Always 0 (Success)
+ */
 
 	int main(int argc, char *argv[])
-
-
 	{
-
-
 		/*Declaring variables*/
 		int count;
 		int str_to_int;
@@ -53,6 +42,7 @@
 
 
 		count = 1;
+
 		while (count < argc) /*Goes through the whole array*/
 		{
 			if (check_num(argv[count]))
