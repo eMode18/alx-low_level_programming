@@ -5,6 +5,7 @@ int my_prime(int n, int m);
 /**
  * is_prime_number - evaluates whether an int is a prime number
  * @n: number to be checked
+ * Return: 1 for prime number, else 0
  */
 int is_prime_number(int n)
 {
@@ -17,6 +18,7 @@ int is_prime_number(int n)
  * my_prime - evaluate if the number is a prime through recursion
  * @n: number to check
  * @m: iterator
+ * Return: 1 for prime number, else 0
  */
 int my_prime(int n, int m)
 {
@@ -24,5 +26,5 @@ int my_prime(int n, int m)
 		return (1);
 	if (n % m == 0 && m > 0)
 		return (0);
-	return (actual_prime(n, m - 1));
+	return (my_prime(n, m - 1));
 }
