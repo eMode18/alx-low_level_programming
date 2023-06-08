@@ -38,7 +38,7 @@ int my_assistant(char *s, int n, int length)
 {
 	if (*(s + n) != *(s + length - 1))
 		return (0);
-	if (n >= len)
+	if (n >= length)
 		return (1);
 	return (my_assistant(s, n + 1, length - 1));
 }
