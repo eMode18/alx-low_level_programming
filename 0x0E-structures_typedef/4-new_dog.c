@@ -3,16 +3,16 @@
 
 /**
  * _strlen - return string length
- * @d: string value
+ * @s: string value
  * Return: string length
  */
-int _strlen(char *d)
+int _strlen(char *s)
 {
 	int j;
 
 	j = 0;
 
-	while (d[j] != '\0')
+	while (s[j] != '\0')
 	{
 		j++;
 	}
