@@ -8,12 +8,13 @@
  * @n: int params for the function
  * @...: variable to print
  */
+
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
-	va_list digits;
+	va_list nums;
 	unsigned int index;
 
-	va_start(digits, n);
+	va_start(nums, n);
 
 	for (index = 0; index < n; index++)
 	{
@@ -25,6 +26,6 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 
 	printf("\n");
 
-	va_end(digits);
+	va_end(nums);
 }
 
