@@ -6,29 +6,30 @@
  * print_all - print all
  * @format: list of argument types
  */
+
 void print_all(const char * const format, ...)
 {
-	int k = 0;
+	int i = 0;
 	char *str, *sep = "";
 
-	va_list obj;
+	va_list list;
 
-	va_start(obj, format);
+	va_start(list, format);
 
 	if (format)
 	{
-		while (format[k])
+		while (format[i])
 		{
-			switch (format[k])
+			switch (format[i])
 			{
 				case 'c':
-					printf("%s%c", sep, va_arg(obj, int));
+					printf("%s%c", sep, va_arg(list, int));
 					break;
 				case 'i':
-					printf("%s%d", sep, va_arg(obj, int));
+					printf("%s%d", sep, va_arg(list, int));
 					break;
 				case 'f':
-					printf("%s%f", sep, va_arg(obj, double));
+					printf("%s%f", sep, va_arg(list, double));
 					break;
 				case 's':
 					str = va_arg(list, char *);
@@ -37,15 +38,15 @@ void print_all(const char * const format, ...)
 					printf("%s%s", sep, str);
 					break;
 				default:
-					k++;
+					i++;
 					continue;
 			}
 			sep = ", ";
-			k++;
+			i++;
 		}
 	}
 
 	printf("\n");
-	va_end(obj);
+	va_end(list);
 }
 
