@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "the_lists.h"
+#include "lists.h"
 
 /**
  * print_list - func to print contents of teh linked list

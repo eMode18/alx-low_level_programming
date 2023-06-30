@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "the_lists.h"
+#include "lists.h"
 
 /**
  * list_len - total items in the linked list

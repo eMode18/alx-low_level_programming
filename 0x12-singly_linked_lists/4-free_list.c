@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "the_lists.h"
+#include "lists.h"
 
 /**
  * free_list - func to free linked list
