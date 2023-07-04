@@ -29,7 +29,7 @@ listint_t *add_nodeint_end(listint_t **head, const int n)
 	while (store->next)
 		store = store->next;
 
-	append->next = append;
+	store->next = append;
 
 	return (append);
 }
