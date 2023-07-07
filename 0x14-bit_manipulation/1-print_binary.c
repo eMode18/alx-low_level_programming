@@ -7,12 +7,12 @@
  */
 void print_binary(unsigned long int n)
 {
-	int k, start = 0;
+	int i, start = 0;
 	unsigned long int new;
 
-	for (k = 63; k >= 0; k--)
+	for (i = 63; i >= 0; i--)
 	{
-		new = n >> k;
+		new = n >> i;
 
 		if (new & 1)
 		{
