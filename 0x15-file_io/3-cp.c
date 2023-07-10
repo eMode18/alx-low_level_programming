@@ -30,7 +30,7 @@ char *create_buffer(char *file)
 }
 
 /**
- * cls_file - function to close file descriptors
+ * close_file - function to close file descriptors
  * @fdes: filedescriptor to close
  */
 
