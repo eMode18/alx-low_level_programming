@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 char *create_buffer(char *file);
-void cls_file(int fdes);
+void close_file(int fdes);
 
 /**
  * create_buffer - function to allocate 1024 to buffer
@@ -31,10 +31,10 @@ char *create_buffer(char *file)
 
 /**
  * cls_file - function to close file descriptors
- * @fdes: filedescriptor
+ * @fdes: filedescriptor to close
  */
 
-void cls_file(int fdes)
+void close_file(int fdes)
 {
 	int close_result;
 
@@ -42,9 +42,7 @@ void cls_file(int fdes)
 
 	if (close_result == -1)
 	{
-		dprintf(STDERR_FILENO,
-			"Error: Unable to close fdes %d\n",
-			fdes);
+		dprintf(STDERR_FILENO, "Error: Unable to close fdes %d\n", fdes);
 		exit(100);
 	}
 }
@@ -82,8 +80,7 @@ int main(int argc, char *argv[])
 		if (fd_from == -1 || read_result == -1)
 		{
 			dprintf(STDERR_FILENO,
-				"Error: Unable to read from file %s\n",
-				argv[1]);
+				"Error: Unable to read from file %s\n", argv[1]);
 			free(ch);
 			exit(98);
 		}
@@ -92,8 +89,7 @@ int main(int argc, char *argv[])
 		if (fd_to == -1 || write_result == -1)
 		{
 			dprintf(STDERR_FILENO,
-				"Error: Unable to write to file %s\n",
-				argv[2]);
+				"Error: Unable to write to file %s\n", argv[2]);
 			free(ch);
 			exit(99);
 		}
@@ -104,8 +100,8 @@ int main(int argc, char *argv[])
 	} while (read_result > 0);
 
 	free(ch);
-	cls_file(fd_from);
-	cls_file(fd_to);
+	close_file(fd_from);
+	close_file(fd_to);
 
 	return (0);
 }
