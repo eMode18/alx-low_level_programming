@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 char *create_buffer(char *file);
-void cls_file(int filep);
+void cls_file(int fdes);
 
 /**
  * create_buffer - function to allocate 1024 to buffer
@@ -11,6 +11,7 @@ void cls_file(int filep);
  *
  * Return: pointer to new buffer
  */
+
 char *create_buffer(char *file)
 {
 	char *ch;
@@ -20,7 +21,8 @@ char *create_buffer(char *file)
 	if (ch == NULL)
 	{
 		dprintf(STDERR_FILENO,
-			"Error: cannot write to %s\n", file);
+			"Error: Unable to allocate memory for %s\n",
+			file);
 		exit(99);
 	}
 
@@ -29,17 +31,20 @@ char *create_buffer(char *file)
 
 /**
  * cls_file - function to close file descriptors
- * @filep: filedescriptor
+ * @fdes: filedescriptor
  */
-void cls_file(int filep)
+
+void cls_file(int fdes)
 {
-	int j;
+	int close_result;
 
-	j = close(filep);
+	close_result = close(fdes);
 
-	if (j == -1)
+	if (close_result == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: unable to close filep %d\n", filep);
+		dprintf(STDERR_FILENO,
+			"Error: Unable to close fdes %d\n",
+			fdes);
 		exit(100);
 	}
 }
@@ -56,9 +61,10 @@ void cls_file(int filep)
  * If file_to cannot be created/written - exit code 99.
  * If files cannot be closed - exit code 100.
  */
+
 int main(int argc, char *argv[])
 {
-	int from, to, rd, wr;
+	int fd_from, fd_to, read_result, write_result;
 	char *ch;
 
 	if (argc != 3)
@@ -68,36 +74,38 @@ int main(int argc, char *argv[])
 	}
 
 	ch = create_buffer(argv[2]);
-	from = open(argv[1], O_RDONLY);
-	rd = read(from, buffer, 1024);
-	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	fd_from = open(argv[1], O_RDONLY);
+	read_result = read(fd_from, ch, 1024);
+	fd_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	do {
-		if (from == -1 || rd == -1)
+		if (fd_from == -1 || read_result == -1)
 		{
 			dprintf(STDERR_FILENO,
-				"Error: unable to read from file %s\n", argv[1]);
+				"Error: Unable to read from file %s\n",
+				argv[1]);
 			free(ch);
 			exit(98);
 		}
 
-		wr = write(to, ch, rd);
-		if (to == -1 || wr == -1)
+		write_result = write(fd_to, ch, read_result);
+		if (fd_to == -1 || write_result == -1)
 		{
 			dprintf(STDERR_FILENO,
-				"Error: unable to write to %s\n", argv[2]);
+				"Error: Unable to write to file %s\n",
+				argv[2]);
 			free(ch);
 			exit(99);
 		}
 
-		rd = read(from, ch, 1024);
-		to = open(argv[2], O_WRONLY | O_APPEND);
+		read_result = read(fd_from, ch, 1024);
+		fd_to = open(argv[2], O_WRONLY | O_APPEND);
 
-	} while (rd > 0);
+	} while (read_result > 0);
 
 	free(ch);
-	cls_file(from);
-	cls_file(to);
+	cls_file(fd_from);
+	cls_file(fd_to);
 
 	return (0);
 }
