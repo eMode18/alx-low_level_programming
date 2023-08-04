@@ -16,7 +16,7 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 
 	for (q = 63; q >= 0; q--)
 	{
-		curr = preview >> i;
+		curr = preview >> q;
 		if (curr & 1)
 			tally++;
 	}
