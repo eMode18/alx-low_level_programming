@@ -2,7 +2,7 @@
 
 /**
  * hash_table_set - Add or update key-value pair in a hash table.
- * @ht: hash table pointer. 
+ * @ht: hash table pointer.
  * @key: non empty string key to be added.
  * @value: The value pointed to by key.
  *
