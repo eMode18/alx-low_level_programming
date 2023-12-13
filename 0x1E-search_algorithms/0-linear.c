@@ -1,4 +1,5 @@
 #include "search_algos.h"
+#include <stddef.h>
 
 /**
  * linear_search - locates a value within a sorted integer array
